@@ -1,7 +1,7 @@
 # ============================================================
 # Archivo: ejercicio1_recursos.py
 # Curso: SOFT-01 Principios de Programación 1 - Sección SCV3
-# Integrantes: Julián [Apellido]
+# Integrantes: Julián Salazar Solis
 # Fecha: 28/09/2026    Versión: 1.0
 # Descripción: Calcula los recursos necesarios para una misión.
 # ============================================================
