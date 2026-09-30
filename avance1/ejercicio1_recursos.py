@@ -2,7 +2,7 @@
 # Archivo: ejercicio1_recursos.py
 # Curso: SOFT-01 Principios de Programación 1 - Sección SCV3
 # Integrantes: Julián Salazar Solis
-# Fecha: 28/09/2026    Versión: 1.0
+# Fecha: 30/09/2026    Versión: 1.1
 # Descripción: Calcula los recursos necesarios para una misión.
 # ============================================================
 
@@ -18,6 +18,7 @@ CONSUMO_ENERGIA_DIARIO = 5
 ENERGIA_EXPLORACION = 10
 CONSUMO_PROVISIONES_DIARIO = 1
 PROVISIONES_ADICIONALES = 3
+TRAMOS_VIAJE = 2
 
 # ------------------------------------------------------------
 # Entrada de datos
@@ -35,10 +36,11 @@ combustible_ida = dias_viaje * CONSUMO_COMBUSTIBLE_DIARIO
 combustible_regreso = dias_viaje * CONSUMO_COMBUSTIBLE_DIARIO
 combustible_total = combustible_ida + combustible_regreso + RESERVA_COMBUSTIBLE
 
-# Oxígeno, energía y provisiones se consumen solo en el viaje de ida.
-oxigeno_requerido = dias_viaje * cantidad_tripulantes * CONSUMO_OXIGENO_DIARIO + OXIGENO_EMERGENCIA
-energia_requerida = dias_viaje * CONSUMO_ENERGIA_DIARIO + ENERGIA_EXPLORACION
-provisiones_requeridas = dias_viaje * cantidad_tripulantes * CONSUMO_PROVISIONES_DIARIO + PROVISIONES_ADICIONALES
+# Oxígeno, energía y provisiones cubren ida y regreso, por eso el consumo
+# diario se multiplica por TRAMOS_VIAJE. Las cantidades fijas (emergencia,exploración y adicionales) se suman una sola vez.
+oxigeno_requerido = dias_viaje * CONSUMO_OXIGENO_DIARIO * TRAMOS_VIAJE * cantidad_tripulantes + OXIGENO_EMERGENCIA
+energia_requerida = dias_viaje * CONSUMO_ENERGIA_DIARIO * TRAMOS_VIAJE + ENERGIA_EXPLORACION
+provisiones_requeridas = dias_viaje * cantidad_tripulantes * CONSUMO_PROVISIONES_DIARIO * TRAMOS_VIAJE + PROVISIONES_ADICIONALES
 
 # ------------------------------------------------------------
 # Salida de resultados
